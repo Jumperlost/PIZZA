@@ -4,10 +4,10 @@ const Menu = () => {
   const menuList = Pizzas.map((pizza) => {
     return (
       <li
-        className="flex justify-between items-end w-4/5 border-b gap-y-3.5 py-2 px-0"
+        className="md:flex  justify-between items-end w-4/5 border-b gap-y-3.5 py-2 px-0"
         key={pizza.id}
       >
-        <div className="flex w-3/5">
+        <div className="md:flex w-3/5">
           {pizza.soldOut === !true ? (
             <img
               className="w-24 h-24 mr-5"
