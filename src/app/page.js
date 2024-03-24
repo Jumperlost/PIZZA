@@ -3,11 +3,12 @@ import Header from "./component/header";
 import RootLayout from "./layout";
 import { FormInput } from "./component/form";
 import "./globals.css";
+import Menu from "./component/menu";
 
-export default function Home() {
+function Home() {
   return (
     <RootLayout>
-      <div className="relative text-base tracking-widest leading-6 text-stone-700">
+      <div className="relative w-full text-base tracking-widest leading-6 text-stone-700">
         <div className="flex items-center justify-center min-h-screen ">
           <Header></Header>
           <div className="flex items-center justify-center flex-col">
@@ -24,7 +25,10 @@ export default function Home() {
             <FormInput></FormInput>
           </div>
         </div>
+        <Menu></Menu>
       </div>
     </RootLayout>
   );
 }
+
+export default Home;
