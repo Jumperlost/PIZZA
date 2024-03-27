@@ -1,6 +1,11 @@
+"use client";
+import { useState } from "react";
 import Pizzas from "../data";
+import Counter from "./countPizzas";
+import Button from "./button";
 
 const Menu = () => {
+  const [isVisible, setVisible] = useState(false);
   const menuList = Pizzas.map((pizza) => {
     return (
       <li
@@ -8,9 +13,9 @@ const Menu = () => {
         key={pizza.id}
       >
         <div className="md:flex w-3/5">
-          {pizza.soldOut === !true ? (
+          {pizza.soldOut === false ? (
             <img
-              className="w-24 h-24 mr-5"
+              className="w-24 h-24 mr-5 hover:scale-125 ease-in duration-300"
               src={pizza.imageUrl}
               alt={pizza.name}
             />
@@ -25,7 +30,7 @@ const Menu = () => {
             <p className="font-extrabold">{pizza.name}</p>
             <p className="italic mb-2.5 mr-2">{pizza.ingredients.join(", ")}</p>
             <div className="flex item-center justify-between">
-              {pizza.soldOut === !true ? (
+              {pizza.soldOut === false ? (
                 <p className="text-sm">€{pizza.unitPrice}</p>
               ) : (
                 <p className="text-lg">Sold Out</p>
@@ -33,14 +38,8 @@ const Menu = () => {
             </div>
           </div>
         </div>
-        {pizza.soldOut === !true ? (
-          <button
-            className="px-3 py-3 h-max rounded-lg bg-yellow-500"
-            soldOut={pizza.soldOut}
-          >
-            Add to cart
-          </button>
-        ) : null}
+        {isVisible && <Counter></Counter>}
+        {!pizza.soldOut && <Button onClick={() => setVisible(!isVisible)} />}
       </li>
     );
   });
