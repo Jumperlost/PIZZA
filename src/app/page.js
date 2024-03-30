@@ -3,7 +3,7 @@ import Header from "./component/header";
 import RootLayout from "./layout";
 import { FormInput } from "./component/form";
 import "./globals.css";
-import Menu from "./component/menu";
+import Menu from "./component/pages/menu/menu";
 
 function Home() {
   return (

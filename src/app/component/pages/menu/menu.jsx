@@ -1,12 +1,31 @@
 "use client";
-import { useState } from "react";
-import Pizzas from "../data";
-import Counter from "./countPizzas";
-import Button from "./button";
+import { useEffect, useState } from "react";
+import Counter from "./component/countPizzas";
+import Button from "./component/button";
 
 const Menu = () => {
+  const [pizzas, setPizzas] = useState([]);
+
+  useEffect(() => {
+    const getAllPizzas = async () => {
+      try {
+        const response = await fetch(
+          "https://react-fast-pizza-api.onrender.com/api/menu"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch");
+        }
+        const data = await response.json();
+        setPizzas(data.data);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+    getAllPizzas();
+  }, []);
+
   const [isVisible, setVisible] = useState(false);
-  const menuList = Pizzas.map((pizza) => {
+  const menuList = pizzas.map((pizza) => {
     return (
       <li
         className="md:flex  justify-between items-end w-4/5 border-b gap-y-3.5 py-2 px-0"
