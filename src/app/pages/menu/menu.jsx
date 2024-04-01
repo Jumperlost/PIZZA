@@ -1,11 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import Counter from "./component/countPizzas";
-import Button from "./component/button";
+import { Button, Counter } from "./component/MenuItem";
+import Header from "../login/component/header";
 
 const Menu = () => {
   const [pizzas, setPizzas] = useState([]);
-
   useEffect(() => {
     const getAllPizzas = async () => {
       try {
@@ -25,26 +24,23 @@ const Menu = () => {
   }, []);
 
   const [isVisible, setVisible] = useState(false);
+
   const menuList = pizzas.map((pizza) => {
     return (
       <li
-        className="md:flex  justify-between items-end w-4/5 border-b gap-y-3.5 py-2 px-0"
+        className="md:flex justify-between items-end w-4/5 border-b gap-y-3.5 py-2 px-0"
         key={pizza.id}
       >
         <div className="md:flex w-3/5">
-          {pizza.soldOut === false ? (
-            <img
-              className="w-24 h-24 mr-5 hover:scale-125 ease-in duration-300"
-              src={pizza.imageUrl}
-              alt={pizza.name}
-            />
-          ) : (
-            <img
-              className="w-24 h-24 mr-5 opacity-40"
-              src={pizza.imageUrl}
-              alt={pizza.name}
-            />
-          )}
+          <img
+            className={`w-24 h-24 mr-5 ${
+              pizza.soldOut
+                ? "opacity-40"
+                : "hover:scale-125 ease-in duration-300"
+            }`}
+            src={pizza.imageUrl}
+            alt={pizza.name}
+          />
           <div className="flex flex-col w-4/5">
             <p className="font-extrabold">{pizza.name}</p>
             <p className="italic mb-2.5 mr-2">{pizza.ingredients.join(", ")}</p>
@@ -62,7 +58,12 @@ const Menu = () => {
       </li>
     );
   });
-  return <ul className="w-9/12 m-0 m-auto">{menuList}</ul>;
+  return (
+    <div className="flex flex-col gap-7">
+      <Header className="scroll-mb-2.5" />
+      <ul className="w-9/12 m-0 m-auto mt-28">{menuList}</ul>
+    </div>
+  );
 };
 
 export default Menu;

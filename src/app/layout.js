@@ -1,3 +1,4 @@
+"use client";
 import { Recursive } from "next/font/google";
 import "./globals.css";
 
