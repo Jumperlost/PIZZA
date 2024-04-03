@@ -1,5 +1,5 @@
 "use client";
-import { Recursive } from "next/font/google";
+import { Recursive } from "@next/font/google";
 import "./globals.css";
 
 const roboto_mono = Recursive({
@@ -7,10 +7,19 @@ const roboto_mono = Recursive({
   display: "swap",
 });
 
-const metadata = {
+const metaData = {
   title: "Pizza",
   description: "Pizza",
 };
+
+import dynamic from "next/dynamic";
+
+const DynamicHeader = dynamic(
+  () => import("../app/pages/login/component/header"),
+  {
+    ssr: false,
+  }
+);
 
 function RootLayout({ children }) {
   return (

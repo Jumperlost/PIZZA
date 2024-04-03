@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Button, Counter } from "./component/MenuItem";
+import MenuItem from "./component/MenuItem";
 import Header from "../login/component/header";
 
 const Menu = () => {
@@ -22,8 +22,6 @@ const Menu = () => {
     };
     getAllPizzas();
   }, []);
-
-  const [isVisible, setVisible] = useState(false);
 
   const menuList = pizzas.map((pizza) => {
     return (
@@ -53,8 +51,7 @@ const Menu = () => {
             </div>
           </div>
         </div>
-        {isVisible && <Counter></Counter>}
-        {!pizza.soldOut && <Button onClick={() => setVisible(!isVisible)} />}
+        {!pizza.soldOut && <MenuItem />}
       </li>
     );
   });

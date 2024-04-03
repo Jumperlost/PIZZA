@@ -1,3 +1,4 @@
+"use client";
 import { FormInput } from "./component/form";
 import Header from "./component/header";
 

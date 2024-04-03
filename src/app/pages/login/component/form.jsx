@@ -1,3 +1,4 @@
+"use client";
 const Form = ({ children }) => {
   return (
     <form className="flex items-center justify-center gap-2.5">{children}</form>
