@@ -1,7 +1,6 @@
 "use client";
-import { Recursive } from "@next/font/google";
+import { Recursive } from "next/font/google";
 import "./globals.css";
-import MyContext from "./context/AuthContext";
 
 const roboto_mono = Recursive({
   subsets: ["latin"],

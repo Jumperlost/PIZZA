@@ -1,3 +1,4 @@
+"use client";
 import MenuItem from "./MenuItem";
 import { useState, useEffect } from "react";
 

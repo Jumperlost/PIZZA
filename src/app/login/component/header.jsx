@@ -1,5 +1,5 @@
 "use client";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -8,18 +8,18 @@ const Header = () => {
         Pizza Day
       </a>
       <div className="w-1/6">
-        <NavLink
-          to="/"
+        <Link
+          href="/"
           className="no-underline cursor-pointer text-xl text-stone-700"
         >
           Login
-        </NavLink>
-        <NavLink
-          to="/menu"
+        </Link>
+        <Link
+          href="/menu"
           className="no-underline cursor-pointer ml-4 text-xl text-stone-700"
         >
           Menu
-        </NavLink>
+        </Link>
       </div>
     </header>
   );

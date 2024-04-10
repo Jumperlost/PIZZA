@@ -31,5 +31,4 @@ const FormInput = ({ type, placeholder }) => {
     </Form>
   );
 };
-
 export { FormInput };

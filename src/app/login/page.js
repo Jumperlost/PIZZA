@@ -1,5 +1,5 @@
 "use client";
-import { FormInput } from "./component/form";
+import { FormInput } from "./component/form.jsx";
 import Header from "./component/header";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
           <p className="mb-7">
             👋 Welcome! Please start by telling us your name:
           </p>
-          <FormInput></FormInput>
+          <FormInput />
         </div>
       </div>
     </div>
