@@ -1,6 +1,7 @@
 "use client";
 import { Recursive } from "next/font/google";
 import "./globals.css";
+import { UserProvider } from "../useContext/UserContext";
 
 const roboto_mono = Recursive({
   subsets: ["latin"],
@@ -14,9 +15,11 @@ const metaData = {
 
 function RootLayout({ children }) {
   return (
-    <html lang="en" className={roboto_mono.className}>
-      <body>{children}</body>
-    </html>
+    <UserProvider>
+      <html lang="en" className={roboto_mono.className}>
+        <body>{children}</body>
+      </html>
+    </UserProvider>
   );
 }
 
