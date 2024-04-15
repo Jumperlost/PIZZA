@@ -42,7 +42,7 @@ const MenuItem = ({ pizza }) => {
         >
           Add to card
         </button>
-      ) : (
+      ) : !pizza.soldOut && count > 0 ? (
         <div className="flex flex-row gap-2  justify-center items-center">
           <button onClick={increment}>
             <IoAddCircleOutline className="hover:scale-125" />
@@ -58,7 +58,7 @@ const MenuItem = ({ pizza }) => {
             Delete
           </button>
         </div>
-      )}
+      ) : null}
     </li>
   );
 };
