@@ -17,7 +17,7 @@ function RootLayout({ children }) {
   return (
     <UserProvider>
       <html lang="en" className={roboto_mono.className}>
-        <body>{children}</body>
+        <body className="bg-indigo-50">{children}</body>
       </html>
     </UserProvider>
   );
