@@ -8,18 +8,18 @@ const roboto_mono = Recursive({
   display: "swap",
 });
 
-const metaData = {
-  title: "Pizza",
-  description: "Pizza",
-};
+// const metaData = {
+//   title: "Pizza",
+//   description: "Pizza",
+// };
 
 function RootLayout({ children }) {
   return (
-    <UserProvider>
-      <html lang="en" className={roboto_mono.className}>
+    <html lang="en" className={roboto_mono.className}>
+      <UserProvider>
         <body className="bg-indigo-50">{children}</body>
-      </html>
-    </UserProvider>
+      </UserProvider>
+    </html>
   );
 }
 

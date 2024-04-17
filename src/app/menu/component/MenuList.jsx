@@ -1,32 +1,20 @@
 "use client";
+import useFetch from "../../../hook/useFetch";
 import MenuItem from "./MenuItem";
-import { useState, useEffect } from "react";
+import { BounceLoader } from "react-spinners";
 
 const MenuList = () => {
-  const [pizzas, setPizzas] = useState([]);
-  useEffect(() => {
-    const getAllPizzas = async () => {
-      try {
-        const response = await fetch(
-          "https://react-fast-pizza-api.onrender.com/api/menu"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch");
-        }
-        const data = await response.json();
-        setPizzas(data.data);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
-    getAllPizzas();
-  }, []);
-  if (!pizzas || !Array.isArray(pizzas)) {
-    return <div>No pizzas data</div>;
-  }
+  const { data, isLoading, error } = useFetch(
+    "https://react-fast-pizza-api.onrender.com/api/menu"
+  );
+
   return (
     <ul>
-      {pizzas.map((pizza) => (
+      {error && <li>error</li>}
+      {isLoading && (
+        <BounceLoader className="m-0 m-auto mt-64" color="#EAB39D" />
+      )}
+      {data.map((pizza) => (
         <MenuItem key={pizza.id} pizza={pizza} />
       ))}
     </ul>
