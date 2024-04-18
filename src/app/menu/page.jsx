@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
 import Header from "../login/component/header";
+// import { lazy } from "react";
 import MenuList from "./component/MenuList";
+
+// const MenuList = lazy(() => import("./component/MenuList"));
 
 const Menu = () => {
   return (
